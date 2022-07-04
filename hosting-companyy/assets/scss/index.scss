@@ -1,0 +1,535 @@
+@use 'reset.scss';
+@use 'fonts.scss';
+//colors
+$white: #ffffff;
+$black: #000000;
+$dark-grey: #808080;
+$light-grey:#D6D4D4;
+$dark-red:#B00000;
+$text-color: #2E2E2E;
+$lighter-grey: #f7fafe;
+
+//vertical spacing
+$small-space: 8rem;
+$medium-space: 10.5rem;
+$big-space: 13.3rem;
+
+:root {
+    scroll-behavior: smooth;
+    font-family: fonts.$font-poppins;
+    font-size: 10px;
+}
+
+body{
+  background-image: linear-gradient(
+      to bottom,
+      $white 0%,
+      $white 93.4%,
+      $dark-red 93.4%,
+      $dark-red 100%,)
+}
+
+.btn-red{
+  background: $dark-red;
+  box-shadow: 0px 0px 64px rgba(176, 0, 0, 0.3);
+  border-radius: 8px;
+  border: none;
+  font-family: fonts.$font-poppins;
+  font-weight: fonts.$fw-regular;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: $white;
+}
+.btn-plain{
+  border-radius: 8px;
+  border: 1px solid $black;
+  font-family: fonts.$font-poppins;
+  font-weight: fonts.$fw-regular;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.main-wrapper {
+    padding: 0 5.2%;
+    margin:  0 auto;
+    a{
+        text-decoration:  none;
+    }
+    
+}
+
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    &__left{
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+    }
+    a:not(.navigation__logo) {
+        position: relative;
+        color: $black;
+        line-height: 2.25rem;
+        font-weight: fonts.$fw-semibold;
+        &:hover{
+          &::after{
+          content: '';
+          width: 75%;
+          border-bottom: 3px solid $dark-red;
+          position: absolute;
+          bottom: -5px;
+          left: 12.5%;
+          right: 12.5%;
+          } 
+        } 
+      }
+    &__list{
+      display: flex;
+      gap: 3.5rem;
+    }
+    &__right{
+      display: flex;
+      gap: 3.5rem;
+      a:last-child{
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        border-left: 2px solid $light-grey;
+        padding-left: 3.5rem;
+        &::after{
+          display: none;
+        }
+      }
+    }
+}
+
+@media screen and(max-width:961px) {
+  body{
+    .navigation__list,
+    .navigation__right,
+    .navigation__left a:not(.navigation__logo){
+      display: none;
+    }
+  }
+} 
+
+.main-banner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 9rem;
+  gap: 5.5rem;
+  &__text h2{
+    color: $text-color;
+    font-family: fonts.$font-poppins;
+    font-weight: fonts.$fw-bold;
+    font-size: 6.4rem;
+    line-height: 7.8rem;
+  }  
+  &__text p{
+      margin: 3.4rem 5.5rem 6rem 0;
+      color: $dark-grey;
+      font-family: fonts.$font-inter;
+      font-weight: fonts.$fw-regular;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+  &__btn{
+      display: flex;
+      gap: 2.4rem;
+      width: 36rem;
+      height: 4.8rem;
+      .btn-red{
+        cursor: pointer;
+      }
+      .btn-plain{
+        cursor: pointer;
+     }
+  }
+}
+.second-banner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6.8rem;
+  gap: 9.3rem;
+    div{
+      display: flex;
+     flex-direction: row-reverse;
+      gap: 8rem;
+    }
+    li:first-child{
+      margin-bottom: 6rem;
+    }
+    &__text h3{
+      font-family: fonts.$font-inter;
+      font-weight: fonts.$fw-extrabold;
+      font-size: 4.8rem;
+      line-height: 6.4rem;
+    }
+    &__text p{
+      font-family: fonts.$font-inter;
+      font-weight: fonts.$fw-regular;
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
+}
+
+.third-banner{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 11.5rem;
+  gap:5.3rem;
+  article{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  h5{
+    font-family: fonts.$font-poppins;
+    font-weight: fonts.$fw-bold;
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+    margin: 1.2rem 0 0.4rem 0;
+  }
+  p{
+    font-family: fonts.$font-poppins;
+    font-weight: fonts.$fw-light;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+  }
+}
+
+.big-banner{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin: 13rem 0 10rem 0;
+  .big-banner__title{
+    font-family:fonts.$font-poppins;
+    font-weight: fonts.$fw-medium;
+    font-size: 5rem;
+    line-height: 6rem;
+    text-align: center;
+    margin-bottom: 3.8rem;
+  }
+  h4{
+   font-family: fonts.$font-poppins;
+   font-weight: fonts.$fw-medium;
+   font-size: 3rem;
+   line-height: 4rem;
+   color: $black;
+  }
+  h5{
+    font-family: fonts.$font-poppins;
+    font-weight: fonts.$fw-regular;
+    font-size: 2.5rem;
+    line-height: 2.5rem;   
+    text-align: center; 
+  }
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 3rem;
+    .center{
+      position: static;
+      margin-top:5.7rem;
+      left: 50%;
+      input[type="checkbox"]{
+        position: relative;
+        width: 8rem;
+        height: 4rem;
+        -webkit-appearance: none;
+        background: $dark-red;
+        outline: none;
+        border-radius: 2rem;
+        border: 0.1rem solid $dark-red;
+        box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+        transition: .5s;
+      }
+      input:checked[type="checkbox"]{
+        background: #D6D4D4;
+        border: 0.1rem solid $light-grey;
+      }
+      input[type="checkbox"]:before{
+        content: '';
+        position: absolute;
+        width: 3.7rem;
+        height: 3.7rem;
+        border-radius: 2rem;
+        top: 0;
+        left: 0;
+        background: $white;
+        box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.2);
+        transform: scale(1,1);
+        transition: .5s;
+      }
+      input:checked[type="checkbox"]:before{
+        left: 4rem;
+      }
+    }
+  }
+  .big-banner__choice{
+    ul{
+      display: flex;
+      gap: 33rem;
+      margin: 8rem 0 0 0;
+    }
+    hr{
+      border: none;
+      height: 4px; 
+      background-image: linear-gradient(
+      to left,
+      $dark-grey 0%,
+      $dark-grey 50%,
+      $dark-red 50%,
+      $dark-red 100%,)
+    }
+  }
+  .big-banner__huge{
+    display: flex;
+    justify-content: space-evenly;
+    .btn-plain{
+      border-radius: 1.2rem;
+      border: 0.1rem solid $black;
+      font-family: fonts.$font-poppins;
+      font-weight: fonts.$fw-semibold;
+      font-size: 1.4rem;
+      line-height: 3.2rem;
+      width: 23.5rem;
+      height: 5rem;
+      text-align: center;
+      margin: 0 3rem 0 3rem;
+      cursor: pointer;
+    }
+    .big-banner__section{
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid black;
+    width: 30rem;
+    height: 81rem;
+    border-radius: 1.5rem;
+    margin-top:8.5rem;
+    }
+    ul{
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin: 1.5rem 0 0 3.4rem;
+    }
+    li{
+      display: flex;
+      gap: 2rem;
+      font-family: fonts.$font-inter;
+      font-weight: fonts.$fw-bold;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      color: $dark-grey;
+    }
+    h6{
+      font-weight: fonts.$fw-semibold;
+      font-size: 2.8rem;
+      line-height: 2.5rem;
+      margin: 3.4rem 0 1.1rem 3.4rem;
+    }
+    h3{
+      font-weight: fonts.$fw-semibold;
+      font-size: 4.2rem;
+      line-height: 3.2rem;
+      margin: 2.8rem 0 4rem 3.4rem;
+    }
+    header{
+      font-weight: fonts.$fw-regular;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin: 0 2.5rem 0 3.4rem;
+    }
+  }
+}
+
+.quote-section{
+  display: flex;
+  position: relative;
+  width: 84%;
+  height: 88rem;
+  padding: 0 8%;
+  margin-top: 16rem;
+  &__div{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 0px;
+   gap: 8px;
+   position: absolute;
+   width: 445px;
+   height: 183px;
+   left: 169px;
+   top: 56px;
+   &__title{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-extrabold;
+    font-size: 4.0rem;
+    line-height: 6.4rem;
+  }
+  &__subtitle{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-regular;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+    }
+  }
+  &__banners1{
+    position: absolute;
+    width: 35rem;
+    height: 38.8rem;
+    left: 24rem;
+    top: 25rem;
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    border-radius: 8px;
+    img{
+      margin: 0.7rem 0 0 3.5rem;
+    }
+  }
+  &__banners2{
+    position: absolute;
+    width: 44.5rem;
+    height: 40rem;
+    left: 60rem;
+    top: 5rem;
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    border-radius: 8px;
+    img{
+      margin: 3.5rem 0 0 3.5rem;
+    }
+  }
+  &__banners3{
+    position: absolute;
+    width: 35rem;
+    height: 28.6rem;
+    left: 60rem;
+    top: 46rem;
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    border-radius: 8px;
+    img{
+      margin: 3.5rem 0 0 3.5rem;
+    }
+  }
+  header{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-regular;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    margin: 3.5rem 0 0 3.5rem;
+  }
+  p{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-medium;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-left: 3.5rem;
+  }
+  h6{
+    font-family:fonts.$font-inter;
+    font-weight:fonts.$fw-bold;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    margin: 2.4rem 0 0 3.5rem;
+  }
+}
+
+.same-banner{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 9.3rem;
+  width: 84%;
+  padding: 0 8%;
+  ul{
+    display: flex;
+    align-items: center;
+    gap: 6.5rem;
+  }
+  &__text h3{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-extrabold;
+    font-size: 4.8rem;
+    line-height: 6.4rem;
+  }
+  &__text p{
+    font-family: fonts.$font-inter;
+    font-weight: fonts.$fw-regular;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+.last-banner{
+  text-align: center;
+  margin: 11rem;
+  border: 1px solid $lighter-grey;
+  background-color: $lighter-grey;
+  border-radius: 1.6rem;
+    .btn-red{
+      background: $dark-red;
+      border-radius: 8px;
+      border: none;
+      font-weight: fonts.$fw-regular;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      width: 21rem;
+      height: 4.8rem;
+      color: $white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      padding: 2rem;
+      gap: 0.6rem;
+    }
+    h2{
+      font-weight: fonts.$fw-semibold;
+      font-size: 6.4rem;
+      line-height: 8.8rem;
+      margin-bottom: 4rem;
+    }
+}
+
+.footer{
+  display: flex;
+  font-family: fonts.$font-inter;
+  justify-content: space-between;
+  div{
+    color: $white;
+    font-size: 1.4rem;
+    line-height: 3.2rem;
+    font-weight: fonts.$fw-regular;
+    width: 25rem;
+  }
+  &__text{
+    display: flex;
+  }
+  header{
+    font-weight: fonts.$fw-bold;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: $white;
+  }
+  ul{
+    color: $white;
+    font-size: 1.4rem;
+    line-height: 3.2rem;
+    font-weight: fonts.$fw-regular;
+    margin: 2.4rem 0 0 12rem;
+  }
+  li{
+    margin-top: 2.4rem;
+  }
+}
+
